@@ -1,6 +1,6 @@
 //create a stock class
-public class Stock
-{
+
+public class Stock {
 	private String name_;
 	private String symbol_;
 	private double currentPrice_;
@@ -10,13 +10,12 @@ public class Stock
 	/**
 		The constructor 'Stock' is to set default value without argument.	
 	*/
-	public Stock()
-	{
+	public Stock(){
 		//declare default values.
 		name_ = "Microsoft";
 		symbol_ = "MSFT";	
 		currentPrice_ = 110.67;
-		myDate_ = new MyDate(20180901);
+		myDate_ = new MyDate("20180901");
 	}
 	
 	/**
@@ -28,6 +27,7 @@ public class Stock
 	public Stock(String name, String symbol, double price, MyDate myDate)
 	{
 		//delare different variables;
+		currentPrice_ = price;
 		name_ = name;
 		symbol_ = symbol;
 		myDate_ = myDate;
@@ -49,8 +49,8 @@ public class Stock
 		The method 'getName' is to get name.	
 		@return: string type value of name.
 	*/
-	public String getName()
-	{
+	public String getName(){
+		System.out.println("Company name:\t\t\t\t\t"+name_);
 		return name_;
 	}
 	
@@ -61,8 +61,8 @@ public class Stock
 		@param symbol_1: pass string type value of symbol into function.
 		@return: nothing
 	*/
-	public void setSymbol(String symbol)
-	{
+	public void setSymbol(String symbol){
+		
 		symbol_ = symbol;
 	}
 	
@@ -72,8 +72,8 @@ public class Stock
 		The method 'getSymbol' is to get symbol.	 
 		@return: string type value of symbol 
 	*/
-	public String getSymbol()
-	{
+	public String getSymbol(){
+		System.out.println("Company symbol:\t\t\t\t\t" + symbol_);
 		return symbol_;
 	}
 	
@@ -84,8 +84,7 @@ public class Stock
 		@param price: pass double type price into function.
 		@return: nothing
 	*/
-	public void setCurrentPrice(double price)
-	{
+	public void setCurrentPrice(double price){
 		//prevent set negative price.
 		if(price < 0) currentPrice_ = 0.00;			
 		else currentPrice_ = price;
@@ -97,8 +96,8 @@ public class Stock
 		The method 'getCurrentPrice' is to get CurrentPrice.	
 		@return: double type value of current price.
 	*/
-	public double getCurrentPrice()
-	{
+	public double getCurrentPrice(){
+		System.out.println("Company stock price:\t\t\t\t" + currentPrice_);
 		return currentPrice_;
 	}	
 	
@@ -106,6 +105,10 @@ public class Stock
 	 * 
 	 */
 	public MyDate getMyDate() {
+		System.out.println("date integer in the format of yyyymmdd\t\t" + myDate_.GetMyDate());
+		System.out.println("date string in the format of yyyymmdd\t\t" + myDate_.GetMyDateString());
+		System.out.println("date string in the format of mm/dd/yyyy\t\t" + myDate_.GetMyDateString1());
+		System.out.println("date string in the format of dd/mm/yyyy\t\t" + myDate_.GetMyDateString2());
 		return myDate_;
 	}
 	
