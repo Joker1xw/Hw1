@@ -1,11 +1,14 @@
-public class MyDate{
+public class MyDate {
+	
 	private int my_date_;
-
-	public MyDate(int date) {
-		SetMyDate(date);
-	}
+	private String my_date;
 	
 	public MyDate(String date) {
+		
+		String formatted = date.substring(6,10) + "" + date.substring(3,6) + "" + date.substring(0,3);
+		int integer_date = Integer.valueOf(formatted.replace("/", ""));
+		
+		SetMyDate(integer_date);
 		SetMyDate(date);
 	}
 
@@ -14,7 +17,7 @@ public class MyDate{
 		//date is an integer
 		my_date_ = date;
 	}
-
+	
 	public void SetMyDate(String date) {
 		//assume that the date will be in the format mm/dd/yyyy
 		String month = date.substring(0, 2);
@@ -22,39 +25,43 @@ public class MyDate{
 		String year = date.substring(6, 10);
 		String date_ymd = year + month + day;
 		my_date_ = Integer.valueOf(date_ymd);
+		my_date = date;
 	}
 
 	public int GetMyDate() {
 		return my_date_;
 	}
-
+	
 	public String GetMyDateString() {
-		//please return a date string in the format yyyymmdd
-		System.out.println("Hello World");
-		return String.valueOf(my_date_);
+		//please return a date string in the format yyyymmdd		
+		String formatted = my_date.substring(6,10) + "" + my_date.substring(0,3) + "" + my_date.substring(3,6);		
+		return formatted.replace("/", "");
 	}
-
+	
 	public String GetMyDateString1() {
-		//please return a date string in the format of mm/dd/yyyy
-		return "";
+		//please return a date string in the format of mm/dd/yyyy 
+		String formatted = my_date.substring(0,3)+ "" + my_date.substring(3,6) + "" + my_date.substring(6,10) ;
+		return formatted;
 	}
-
+	
 	public String GetMyDateString2() {
 		//please return a date string in the format of dd/mm/yyyy
-		return "";
-	}
+		String formatted = my_date.substring(3,6)+ "" + my_date.substring(0,3)+ "" + my_date.substring(6,10) ;
+		return formatted;
 
+	}
+	
 	public boolean IsLeapYear(int year) {
 		//please return true if the year is a leap year
-		//return false if the year is not a leap year		
-		
-		boolean isALeapYear;
-		
-	     // divisible by 4
-		isALeapYear = (year % 4 == 0);
-        
-        return isALeapYear;
+
+		//return false if the year is not a leap year
+        if (year % 400 == 0){
+        	return true;
+        }else if (year % 4 == 0) {
+        	return true;
+        }else {
+        	return false;
+        }
+
 	}
-
-
 }
