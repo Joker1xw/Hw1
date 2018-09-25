@@ -53,7 +53,6 @@ public class MyDate {
 	
 	public boolean IsLeapYear(int year) {
 		//please return true if the year is a leap year
-
 		//return false if the year is not a leap year
         if (year % 400 == 0){
         	return true;
